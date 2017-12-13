@@ -13,92 +13,98 @@
   </head>
 
   <body>
-	<div class="container">
-	  <div class="row">
-		<div class="col-sm-9">
-		  <h1>居家購物清單</h1>
+	<nav class="navbar navbar-inverse">
+	    <div class="container-fluid">
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" style="color:#FFFFFF">居家購物清單</a>
 		</div>
-		<!--<div class="col-sm-3">
-		  <div class="form-group">
-			<label for="usr">姓名:</label>
-			<input type="text" class="form-control" id="usr">
-		  </div>
-		  <div class="form-group">
-			<label for="usr">電話:</label>
-			<input type="text" class="form-control" id="usr">
-		  </div>
-		  <div class="form-group">
-			<label for="usr">Email:</label>
-			<input type="text" class="form-control" id="usr">
-		  </div>
-
-		</div>-->
-	  </div>
-	</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+		    <form class="navbar-form navbar-right">
+			<div class="form-group">
+			    <label for="usr" style="color:#FFFFFF">姓名:</label>
+			    <input type="text" class="form-control" id="usr_name">
+			</div>
+			<div class="form-group">
+			    <label for="usr" style="color:#FFFFFF">電話:</label>
+			    <input type="text" class="form-control" id="usr_tax">
+			</div>
+			<div class="form-group">
+			    <label for="usr" style="color:#FFFFFF">Email:</label>
+			    <input type="text" class="form-control" id="usr_email">
+			</div>
+		    </form>
+		</div>
+	    </div>
+	</nav>
 
 	<div class="container">
 	  <div class="row" id= "main_row">
 	  </div>
 	  <div>
 		<button type="button" class="btn btn-default" id="submit">計算購物分布!</button>
-		<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+		<div id="chart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 	  </div>
 	</div>
 
-<script>
-var category = function (category_id, name, items, info) {
-	this.Name = name;
-	this.Items = items;
-	this.Info = info;
-	this.Checked = 0;
-	this.Category = category_id;
-};
+	<script>
+	 var category = function (category_id, name, items, info) {
+	     this.Name = name;
+	     this.Items = items;
+	     this.Info = info;
+	     this.Checked = 0;
+	     this.Category = category_id;
+	 };
 
-category.prototype = {
-	Name: '',
-	Items: '',
-	Info: '',
-	Checked: '',
-	isChecked: function () {
-		this.Checked += 1;
-		console.log(this.Checked);
-	},
-	unChecked: function () {
-		this.Checked -= 1;
-		console.log(this.Checked);
-	}
-};
+	 category.prototype = {
+	     Name: '',
+	     Items: '',
+	     Info: '',
+	     Checked: '',
+	     isChecked: function () {
+		 this.Checked += 1;
+		 console.log(this.Checked);
+	     },
+	     unChecked: function () {
+		 this.Checked -= 1;
+		 console.log(this.Checked);
+	     }
+	 };
 
-// var = new category("", ["", "", "", "", "", "", "", "", ""], "(, , , , )");
-var category_name = ["保養", "居家休閒", "3C家電", "精品彩妝", "清潔"];
-var learning = new category(1, "學習工具", ["書籍", "文具", "雜誌"], "(金石堂, TAAZE, 今周刊, 商周, VOGUE, ELLE)");
-var digital = new category(2, "3C 產品", ["手機", "平板", "相機", "印表機", "電腦"], "(燦坤, 森森, 順發3C, 良興電子)");
-var fruit = new category(1, "食品和飲料", ["小吃", "飲品", "肉品海鮮", "零嘴", "藥膳", "甜品和糕點"], "(亞尼克, 米樂爆米花, 木匠手作, 台北濱江, 黑豆桑)");
-var appliance = new category(2, "家電", ["電視", "冰箱", "影音設備", "洗衣機", "冷氣", "瓦斯爐", "除溼機", "吸塵器", "電風扇", "電暖器", "空氣清淨機", "咖啡機", "調理機", "電鍋", "微波爐", "烤箱", "吹風機", "洗顏機", "電動刮鬍刀", "按摩機", "電動牙刷"], "(燦坤, 順發3C, 良興電子, 大同3C實體店, 威寶電信, GoHappy, 百利市)");
-var household = new category(1, "日常雜貨", ["衛生紙/紙巾", "衛生棉/尿布", "牙膏/牙刷", "毛巾/浴巾", "鍋碗瓢盆", "廚房衛浴設備"], "(永豐餘, 均岱, 三井3C, 好房適, 寶僑P&G, 聯合利華)");
-var bedding = new category(1, "寢具", ["床墊", "床包", "棉被、枕頭", "床架", "床頭櫃"], "(棉睡3店, 鴻宇寢具, 我們是幸福床墊)");
-var furniture = new category(1, "傢俱", ["沙發", "裝飾品", "桌子、椅子", "鞋櫃", "收納櫃", "地毯"], "(aabeauty, LAnder浴櫃商場, 呈邑創研設計)");
-var apparel = new category(3, "精品、服飾", ["服飾", "包包", "香水", "手錶", "飾品", "黃金"], "(天母嚴選, BABBY KING童裝, SOGO, 衣林魔力屋)");
-var travel = new category(1, "旅遊、休閒", ["住宿", "行程", "餐券", "機票", "電影票"], "(Hotel.com, Gomaji, 東南, 翔順, 大眾, 果子電影)");
-var health = new category(0, "營養保健", ["消化不良", "營養不均", "排便不順", "精神不濟", "容易腹瀉", "心血管保養", "血糖管理", "降低三高指數", "壓力過大", "增強免疫系統", "記憶衰退", "內分泌失調", "孕婦保健", "睡眠品質不佳", "抗氧化物", "減緩老化", "增強體力", "骨質強化"], "");
-var younger = new category(0, "抗老化", ["臉部凍齡保養", "眼睛視力保養", "關節軟骨保養"], "");
-var bodyweight = new category(0, "體重管理", ["促進新陳代謝", "降低體脂肪", "點心、正餐替代品", "減重課程"], "");
-var clean = new category(4, "居家清潔用品", ["牆壁、地板清潔劑", "洗碗精", "廚房清潔劑", "洗手液", "浴室清潔劑", "除油劑", "污漬清潔劑"], "");
-var waterfilter= new category(1, "濾水器", ["飲水濾水器", "濾水器濾心", "沐浴濾水器"], "");
-var laundry = new category(4, "洗衣用具", ["洗衣精", "衣物柔軟精"], "");
-var shower = new category(0, "沐浴護膚、洗髮護髮", ["沐浴露", "沐浴球", "身體乳", "護手霜", "洗髮精", "護髮乳", "順髮油", "增髮液", "髮雕"], "");
-var souvenir = new category(1, "伴手禮", ["禮盒", "禮品"], "(海苔先生, 健康村, 愛D菇, 火星糖, 童樂會，花田喜");
-var baby = new category(0, "嬰幼兒專用", ["嬰兒乳液", "安膚霜", "嬰兒沐浴乳", "洗髮乳", "兒童維生素", "益生菌", "兒童健康軟糖"], "");
-var protect = new category(0, "護膚保養", ["洗面乳", "去角質", "化妝水", "精華液", "乳液", "防曬乳", "日霜", "晚霜", "眼霜", "頸霜", "面膜", "護膚組", "美白", "淡斑", "皺紋", "除粉刺", "護唇膏", "肌膚護理", "睫毛纖長"], "");
-var makeup = new category(3, "彩妝用品", ["毛孔修飾", "妝前飾底乳", "粉底液", "粉餅", "蜜粉", "修容", "遮暇膏", "腮紅", "眼影", "眼影底霜", "眼彩組", "眉筆、眉粉", "眼線筆、眼線液", "假睫毛、假睫毛膏", "唇膏、唇筆、唇蜜、唇彩組", "定妝霜", "卸妝棉", "眼部卸妝液", "刷具", "美甲用品"], "");
-var website = new category(2, "網路行銷管理", ["架設網站", "購物車建置", "網路商品行銷", "廣告配置"], "");
-var car = new category(1, "汽機車用品", ["汽車清潔用品", "皮革清潔用品", "降低耗油", "增強馬力"], "");
-var other = new category(0, "其他", ["防輻射貼片", "其他"], "");
+	 // var = new category("", ["", "", "", "", "", "", "", "", ""], "(, , , , )");
+	 var category_name = ["保養", "居家休閒", "3C家電", "精品彩妝", "清潔"];
+	 var learning = new category(1, "學習工具", ["書籍", "文具", "雜誌"], "(金石堂, TAAZE, 今周刊, 商周, VOGUE, ELLE)");
+	 var digital = new category(2, "3C 產品", ["手機", "平板", "相機", "印表機", "電腦"], "(燦坤, 森森, 順發3C, 良興電子)");
+	 var fruit = new category(1, "食品和飲料", ["小吃", "飲品", "肉品海鮮", "零嘴", "藥膳", "甜品和糕點"], "(亞尼克, 米樂爆米花, 木匠手作, 台北濱江, 黑豆桑)");
+	 var appliance = new category(2, "家電", ["電視", "冰箱", "影音設備", "洗衣機", "冷氣", "瓦斯爐", "除溼機", "吸塵器", "電風扇", "電暖器", "空氣清淨機", "咖啡機", "調理機", "電鍋", "微波爐", "烤箱", "吹風機", "洗顏機", "電動刮鬍刀", "按摩機", "電動牙刷"], "(燦坤, 順發3C, 良興電子, 大同3C實體店, 威寶電信, GoHappy, 百利市)");
+	 var household = new category(1, "日常雜貨", ["衛生紙/紙巾", "衛生棉/尿布", "牙膏/牙刷", "毛巾/浴巾", "鍋碗瓢盆", "廚房衛浴設備"], "(永豐餘, 均岱, 三井3C, 好房適, 寶僑P&G, 聯合利華)");
+	 var bedding = new category(1, "寢具", ["床墊", "床包", "棉被、枕頭", "床架", "床頭櫃"], "(棉睡3店, 鴻宇寢具, 我們是幸福床墊)");
+	 var furniture = new category(1, "傢俱", ["沙發", "裝飾品", "桌子、椅子", "鞋櫃", "收納櫃", "地毯"], "(aabeauty, LAnder浴櫃商場, 呈邑創研設計)");
+	 var apparel = new category(3, "精品、服飾", ["服飾", "包包", "香水", "手錶", "飾品", "黃金"], "(天母嚴選, BABBY KING童裝, SOGO, 衣林魔力屋)");
+	 var travel = new category(1, "旅遊、休閒", ["住宿", "行程", "餐券", "機票", "電影票"], "(Hotel.com, Gomaji, 東南, 翔順, 大眾, 果子電影)");
+	 var health = new category(0, "營養保健", ["消化不良", "營養不均", "排便不順", "精神不濟", "容易腹瀉", "心血管保養", "血糖管理", "降低三高指數", "壓力過大", "增強免疫系統", "記憶衰退", "內分泌失調", "孕婦保健", "睡眠品質不佳", "抗氧化物", "減緩老化", "增強體力", "骨質強化"], "");
+	 var younger = new category(0, "抗老化", ["臉部凍齡保養", "眼睛視力保養", "關節軟骨保養"], "");
+	 var bodyweight = new category(0, "體重管理", ["促進新陳代謝", "降低體脂肪", "點心、正餐替代品", "減重課程"], "");
+	 var clean = new category(4, "居家清潔用品", ["牆壁、地板清潔劑", "洗碗精", "廚房清潔劑", "洗手液", "浴室清潔劑", "除油劑", "污漬清潔劑"], "");
+	 var waterfilter= new category(1, "濾水器", ["飲水濾水器", "濾水器濾心", "沐浴濾水器"], "");
+	 var laundry = new category(4, "洗衣用具", ["洗衣精", "衣物柔軟精"], "");
+	 var shower = new category(0, "沐浴護膚、洗髮護髮", ["沐浴露", "沐浴球", "身體乳", "護手霜", "洗髮精", "護髮乳", "順髮油", "增髮液", "髮雕"], "");
+	 var souvenir = new category(1, "伴手禮", ["禮盒", "禮品"], "(海苔先生, 健康村, 愛D菇, 火星糖, 童樂會，花田喜");
+	 var baby = new category(0, "嬰幼兒專用", ["嬰兒乳液", "安膚霜", "嬰兒沐浴乳", "洗髮乳", "兒童維生素", "益生菌", "兒童健康軟糖"], "");
+	 var protect = new category(0, "護膚保養", ["洗面乳", "去角質", "化妝水", "精華液", "乳液", "防曬乳", "日霜", "晚霜", "眼霜", "頸霜", "面膜", "護膚組", "美白", "淡斑", "皺紋", "除粉刺", "護唇膏", "肌膚護理", "睫毛纖長"], "");
+	 var makeup = new category(3, "彩妝用品", ["毛孔修飾", "妝前飾底乳", "粉底液", "粉餅", "蜜粉", "修容", "遮暇膏", "腮紅", "眼影", "眼影底霜", "眼彩組", "眉筆、眉粉", "眼線筆、眼線液", "假睫毛、假睫毛膏", "唇膏、唇筆、唇蜜、唇彩組", "定妝霜", "卸妝棉", "眼部卸妝液", "刷具", "美甲用品"], "");
+	 var website = new category(2, "網路行銷管理", ["架設網站", "購物車建置", "網路商品行銷", "廣告配置"], "");
+	 var car = new category(1, "汽機車用品", ["汽車清潔用品", "皮革清潔用品", "降低耗油", "增強馬力"], "");
+	 var other = new category(0, "其他", ["防輻射貼片", "其他"], "");
 
-var categories = [learning, digital, fruit, appliance, household, bedding, furniture, apparel, travel, health, younger, bodyweight, clean, waterfilter, laundry, shower, souvenir, baby, protect, makeup, website, car, other];
+	 var categories = [learning, digital, fruit, appliance, household, bedding, furniture, apparel, travel, health, younger, bodyweight, clean, waterfilter, laundry, shower, souvenir, baby, protect, makeup, website, car, other];
 
-var d = new Date();
-d + '';
+	 var d = new Date();
+	 d + '';
 	 $(function() {	     
 	     for(inx = 0; inx < categories.length; ++inx) {
 		 var left = ''
@@ -114,100 +120,93 @@ d + '';
 		 $('#main_row').append('<div class="col-sm-4" value="' + inx +  '"> <h3>' + categories[inx].Name+ '</h3> <div class="row"> <div class="col-xs-6">' + left + ' </div> <div class="col-xs-6">' + right + ' </div> </div> <p style="font-size:12px">' + categories[inx].Info + ' </p></div>');
 	     }
 
-	   $('input:checkbox').on('change', function() {
-			 var inx = $(this).closest('.col-sm-4').attr('value')
-			 if(this.checked) {
-			     categories[inx].isChecked()
-			 } else {
-			     categories[inx].unChecked()
+	     $('input:checkbox').on('change', function() {
+		 var inx = $(this).closest('.col-sm-4').attr('value')
+		 if(this.checked) {
+		     categories[inx].isChecked()
+		 } else {
+		     categories[inx].unChecked()
+		 }
+	     });
+	     $('#submit').on('click', function(event) {
+	 	 // not a good idea..
+	 	     var mdata = []
+	 	 var mdata_drilldown = []
+	 	 for(inx = 0; inx < category_name.length; ++inx) {
+	 	     temp = new Object();
+	 	     temp.name = category_name[inx];
+	 	     temp.y = 0;
+	 	     temp.drilldown = category_name[inx];
+	 	     
+	 	     mdata.push(temp);
+	 	     
+	 	     temp2 = {name: category_name[inx], id: category_name[inx], data: []};
+	 	     
+	 	     mdata_drilldown.push(temp2);
+	 	 }
+	 	 var total_checked = 0
+	 	 var category_total_checked = Array(category_name.length).fill(0);
+	 	 for(inx = 0; inx < categories.length; ++inx) {
+	 	     c = categories[inx].Category
+	 	     category_total_checked[c] += categories[inx].Checked
+	 	 }
+	 	 for(inx = 0; inx < categories.length; ++inx) {
+	 	     c = categories[inx].Category
+	 	     mdata[c].y += categories[inx].Checked
+	 	     total_checked += categories[inx].Checked
+	 	     mdata_drilldown[c].data.push([categories[inx].Name, 100.0 * categories[inx].Checked / category_total_checked[c]])
+	 	 }
+	 	 for(inx = 0; inx < category_name.length; ++inx) {
+	 	     mdata[inx].y /= (total_checked * 0.01)
+	 	 }
+		 Highcharts.chart('chart', {
+		     chart: {
+			 type: 'column'
+		     },
+		     title: {
+			 text: (($('#usr_name').val().length) ? ($('#usr_name').val()) + " 的" : "" ) + "居家購物清單分布"
+		     },
+		     subtitle: {
+			 text:  (($('#usr_tax').val().length) ? ("手機: " + $('#usr_tax').val()) + ", " : "" ) + (($('#usr_email').val().length) ? ("email: " + $('#usr_email').val()) + ", ": "" ) + " (" + d.toISOString().substring(0, 10) + ")"
+		     },
+		     xAxis: {
+			 type: 'category'
+		     },
+		     yAxis: {
+			 title: {
+			     text: '購物分類 %'
 			 }
-	 		});
-	 		$('#submit').on('click', function(event) {
-	 			// not a good idea..
-	 			var mdata = []
-	 			var mdata_drilldown = []
-	 			for(inx = 0; inx < category_name.length; ++inx) {
-	 				temp = new Object();
-	 				temp.name = category_name[inx];
-	 				temp.y = 0;
-	 				temp.drilldown = category_name[inx];
-	 				
-	 				mdata.push(temp);
-	 				
-	 				temp2 = {name: category_name[inx], id: category_name[inx], data: []};
-	 				
-	 				mdata_drilldown.push(temp2);
-	 			}
-	 			var total_checked = 0
-	 			var category_total_checked = Array(category_name.length).fill(0);
-	 			for(inx = 0; inx < categories.length; ++inx) {
-	 				c = categories[inx].Category
-	 				category_total_checked[c] += categories[inx].Checked
-	 			}
-	 			for(inx = 0; inx < categories.length; ++inx) {
-	 				c = categories[inx].Category
-	 				mdata[c].y += categories[inx].Checked
-	 				total_checked += categories[inx].Checked
-	 				mdata_drilldown[c].data.push([categories[inx].Name, 100.0 * categories[inx].Checked / category_total_checked[c]])
-	 			}
-	 			for(inx = 0; inx < category_name.length; ++inx) {
-	 				mdata[inx].y /= (total_checked * 0.01)
-	 			}
-	 			console.log(mdata)
-	 			console.log(mdata_drilldown)
-			  Highcharts.chart('container', {
-					 chart: {
-						 type: 'column'
-					 },
-					 title: {
-						 text: "居家購物清單分布"
-					 },
-					 subtitle: {
-						 text:  "(" + d.toDateString() + ")"
-					 },
-					 xAxis: {
-						 type: 'category'
-					 },
-					 yAxis: {
-						 title: {
-							 text: '購物分類 %'
-						 }
 
-					 },
-					 legend: {
-						 enabled: false
-					 },
-					 plotOptions: {
-						 series: {
-							 borderWidth: 0,
-							 dataLabels: {
-								 enabled: true,
-								 format: '{point.y:.1f}%'
-							 }
-						 }
-					 },
+		     },
+		     legend: {
+			 enabled: false
+		     },
+		     plotOptions: {
+			 series: {
+			     borderWidth: 0,
+			     dataLabels: {
+				 enabled: true,
+				 format: '{point.y:.1f}%'
+			     }
+			 }
+		     },
 
-					 tooltip: {
-						 headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-						 pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-					 },
+		     tooltip: {
+			 headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+			 pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+		     },
 
-					 series: [{
-							 name: 'Brands',
-							 colorByPoint: true,
-							 data: mdata
-						 }],
-					 drilldown: {
-						 series: mdata_drilldown
-					 }
-				 });
-			});
-	 		
+		     series: [{
+			 name: 'Brands',
+			 colorByPoint: true,
+			 data: mdata
+		     }],
+		     drilldown: {
+			 series: mdata_drilldown
+		     }
+		 });
+	     });	     
 	 });
-
-</script>
-
+	</script>
   </body>
-
-
 </html>
