@@ -1,212 +1,354 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-	<title>Shopping Menu</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="https://code.highcharts.com/modules/data.js"></script>
-	<script src="https://code.highcharts.com/modules/drilldown.js"></script>
-  </head>
+<html>
 
-  <body>
-	<nav class="navbar navbar-inverse">
-	    <div class="container-fluid">
-		<div class="navbar-header">
-		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		    </button>
-		    <a class="navbar-brand" style="color:#FFFFFF">居家購物清單</a>
-		</div>
-		<div class="collapse navbar-collapse" id="myNavbar">
-		    <form class="navbar-form navbar-right">
-			<div class="form-group">
-			    <label for="usr" style="color:#FFFFFF">姓名:</label>
-			    <input type="text" class="form-control" id="usr_name">
-			</div>
-			<div class="form-group">
-			    <label for="usr" style="color:#FFFFFF">電話:</label>
-			    <input type="text" class="form-control" id="usr_tax">
-			</div>
-			<div class="form-group">
-			    <label for="usr" style="color:#FFFFFF">Email:</label>
-			    <input type="text" class="form-control" id="usr_email">
-			</div>
-		    </form>
-		</div>
-	    </div>
-	</nav>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- PAGE settings -->
+  <title>新時尚健康瘦</title>
+  <!-- CSS dependencies -->
+  <link rel="stylesheet" href="aquamarine.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <!-- Script: Make my navbar transparent when the document is scrolled to top -->
+  <script src="js/navbar-ontop.js"></script>
+  <!-- Script: Animated entrance -->
+  <script src="js/animate-in.js"></script>
+</head>
 
-	<div class="container">
-	  <div class="row" id= "main_row">
-	  </div>
-	  <div>
-		<button type="button" class="btn btn-default" id="submit">計算購物分布!</button>
-		<div id="chart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-	  </div>
-	</div>
+<body class="text-center">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
+    <div class="container">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="true" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+      <div class="navbar-collapse justify-content-center collapse show" id="navbar2SupportedContent" style="">
+        <ul class="navbar-nav">
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="#team">關於我們</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="#speakers">團隊成員</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="#schedule">活動資訊</a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="#contact">聯絡我們</a>
+          </li>
+        </ul>
+        <a class="btn navbar-btn mx-2 text-white btn-outline-light" href="">登入</a>
+      </div>
+    </div>
+  </nav>
+  <!-- Cover -->
+  <div class="d-flex align-items-center section-aquamarine py-5 cover section-light-dark" style="background-image: url(&quot;assets/tls/food-salad-healthy-lunch.jpg&quot;);" id="home">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-white mt-5">
+          <h1 class="display-2 d-none d-md-block ">新時尚健康瘦</h1>
+          <h1 class="d-block d-md-none">新時尚健康瘦</h1>
+          <h4 class="">為您打造一顆健康的腦</h4>
+          <a href="#news" class="btn btn-lg mt-4 btn-outline-light">最新消息</a><i class="d-block fa fa-angle-down pt-5 fa-3x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Parallax section -->
+  <div class="py-5 section-parallax" style="background-image: url(&quot;assets/tls/pexels-photo-890507.jpeg&quot;);" id="team">
+    <div class="container my-5 p-4 bg-white">
+      <div class="row mx-auto">
+        <div class="col-md-12">
+          <h1 class="mb-3">關於我們</h1>
+          <p class="">這是一群<br>想瘦卻又懂的享受的<br>宅男美女組合</p>
+          <a href="#schedule" class="btn btn-outline-primary btn-lg m-2">活動資訊</a>
+          <a class="btn btn-primary btn-lg m-2" href="#register">更多故事</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Speakers -->
+  <div class="bg-light py-3" id="speakers">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>團隊成員</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-4 animate-in-left">
+          <a href="">
+            <img src="assets/tls/52415972_2330621953836760_437471783789002752_n.jpg" class="center-block img-fluid my-3 rounded-circle" width="300">
+            <h3 class="mb-0" contenteditable="true"><b>龍姐</b></h3>
+            <p class="text-muted">第一屆 健康瘦主辦</p>
+          </a>
+          <div class="card text-center"><a href="">
+            </a>
+            <div class="card-body"><a href="">
+                <h5 class="text-dark">時尚美學講師</h5>
+                <p class="text-muted">我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐</p>
+                <br>
+              </a><a href="" class="btn btn-primary">聯絡她</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <a href="">
+            <img src="assets/tls/52415972_2330621953836760_437471783789002752_n.jpg" class="center-block img-fluid my-3 rounded-circle" width="300">
+            <h3 class="mb-0" contenteditable="true"><b>龍姐</b></h3>
+            <p class="text-muted">第一屆 健康瘦主辦</p>
+          </a>
+          <div class="card text-center"><a href="">
+            </a>
+            <div class="card-body"><a href="">
+                <h5 class="text-dark">時尚美學講師</h5>
+                <p class="text-muted">我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐</p>
+                <br>
+              </a><a href="" class="btn btn-primary">聯絡她</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 animate-in-right">
+          <a href="">
+            <img src="assets/tls/52415972_2330621953836760_437471783789002752_n.jpg" class="center-block img-fluid my-3 rounded-circle" width="300">
+            <h3 class="mb-0" contenteditable="true"><b>龍姐</b></h3>
+            <p class="text-muted">第一屆 健康瘦主辦</p>
+          </a>
+          <div class="card text-center"><a href="">
+            </a>
+            <div class="card-body"><a href="">
+                <h5 class="text-dark">時尚美學講師</h5>
+                <p class="text-muted">我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐我是龍姐</p>
+                <br>
+              </a><a href="" class="btn btn-primary">聯絡她</a>
+            </div>
+          </div>
+        </div>
+        <!--<div class="col-6 col-lg-4 animate-in-left">
+          <a href="">
+            <img src="assets/conference/people_4.jpg" class="center-block img-fluid my-3 rounded-circle" width="300" >
+            <h3 class="mb-0"><b>Emily Wang</b></h3>
+            <p class="text-muted">Front-end developer</p>
+          </a>
+        </div>
+        <div class="col-6 col-lg-4">
+          <a href="">
+            <img src="assets/conference/people_5.jpg" class="center-block img-fluid my-3 rounded-circle" width="300">
+            <h3 class="mb-0"><b>John Morgan</b></h3>
+            <p class="text-muted">Bootstrap evangelist</p>
+          </a>
+        </div>
+        <div class="col-6 mask col-lg-4 animate-in-right">
+          <a href="">
+            <img src="assets/conference/people_6.jpg" class="center-block img-fluid my-3 rounded-circle" width="300">
+            <h3 class="mb-0"><b>Mary Potter</b></h3>
+            <p class="text-muted">Front-end developer</p>
+          </a>
+        </div>-->
+      </div>
+    </div>
+  </div>
+  <!-- news -->
+  <div class="py-5 section bg-faded bg-light section-light-dark" id="news" style="background-image: url(&quot;assets/tls/food-salad-healthy-colorful.jpg&quot;);">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="mb-4">最新消息</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-12">
+          <img class="center-block img-fluid d-block" src="assets/tls/52762275_621110458311791_8453710878049566720_n.jpg"> </div>
+      </div>
+    </div>
+  </div>
+  <!-- Schedule -->
+  <div class="py-5 section-parallax" style="background-image: url(&quot;assets/tls/pexels-photo-255501.jpeg&quot;);" id="schedule">
+    <div class="container section-aquamarine">
+      <div class="row text-left text-dark">
+        <div class="p-4 col-lg-12 col-md-6">
+          <div class="card">
+            <div class="card-block text-center card-primary p-2">
+              <h2>近期活動</h2>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-10">
+                      <h6 class="my-1 pt-1"><i class="mx-auto fa d-inline text-primary"></i>2019/03/30 09:30-12:00 –&nbsp;<b>龍姐 - 教你怎麼吃</b>
+                      </h6>
+                    </div>
+                    <div class="col-md-2">
+                      <a class="btn btn-light w-100" href="" data-toggle="modal" data-target="#exampleModalLong">報名</a></div>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-10">
+                      <h6 class="my-1 pt-1"><i class="mx-auto fa d-inline text-primary"></i>2019/03/30 09:30-12:00 –&nbsp;<b>龍姐 - 教你怎麼吃</b>
+                      </h6>
+                    </div>
+                    <div class="col-md-2">
+                      <a class="btn btn-light w-100" href="" data-toggle="modal" data-target="#exampleModalLong">報名</a></div>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-10">
+                      <h6 class="my-1 pt-1"><i class="mx-auto fa d-inline text-primary"></i>2019/03/30 09:30-12:00 –&nbsp;<b>龍姐 - 教你怎麼吃</b>
+                      </h6>
+                    </div>
+                    <div class="col-md-2">
+                      <a class="btn btn-light w-100" href="" data-toggle="modal" data-target="#exampleModalLong">報名</a></div>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-10">
+                      <h6 class="my-1 pt-1"><i class="mx-auto fa d-inline text-primary"></i>2019/03/30 09:30-12:00 –&nbsp;<b>龍姐 - 教你怎麼吃</b>
+                      </h6>
+                    </div>
+                    <div class="col-md-2">
+                      <a class="btn btn-light w-100" href="" data-toggle="modal" data-target="#exampleModalLong">報名</a></div>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-10">
+                      <h6 class="my-1 pt-1"><i class="mx-auto fa d-inline text-primary"></i>2019/03/30 09:30-12:00 –&nbsp;<b>龍姐 - 教你怎麼吃</b>
+                      </h6>
+                    </div>
+                    <div class="col-md-2">
+                      <a class="btn btn-light w-100" href="" data-toggle="modal" data-target="#exampleModalLong">報名</a></div>
+                  </div>
+                </div>
+              </li>
+              <!--<li class="list-group-item"><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;09:30-10:00 –&nbsp;<b>Welcome</b></li>
+              <li class="list-group-item"><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;10:00-12:00 –&nbsp;<b>Bootstrap</b></li>
+              <li class="list-group-item"><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;12:00-13:00 –&nbsp;<b>Q&amp;A</b></li>
+              <li class="list-group-item bg-info"><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;13:00-14:30 –&nbsp;<b>Lunch</b></li>
+              <li class="list-group-item"><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;14:30-16:00 –&nbsp;<b>Besties</b></li>
+              <li class="list-group-item"><i class="mx-auto fa d-inline fa-clock-o text-primary"></i>&nbsp;16:00-18:00 –&nbsp;<b>Workshop</b></li>-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="container" id="contact">
+              <div class="row">
+                <h5 class="modal-title" id="exampleModalLongTitle">龍姐 - 教你怎麼吃</h5>
+              </div>
+              <div class="row">
+                <h6 class="text-muted my-1">2019/03/30 09:30-12:00</h6>
+              </div>
+            </div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="c_form-h" class="">
+              <div class="form-group row"> <label for="inputpasswordh" class="col-2 col-form-label">姓名</label>
+                <div class="col-10">
+                  <input type="password" class="form-control" id="inputpasswordh" placeholder=""> </div>
+              </div>
+              <div class="form-group row"> <label for="inputmailh" class="col-2 col-form-label">E-mail</label>
+                <div class="col-10">
+                  <input type="email" class="form-control" id="inputmailh" placeholder=""> </div>
+              </div>
+              <div class="form-group row"> <label for="inputmailh" class="col-2 col-form-label">Line</label>
+                <div class="col-10">
+                  <input type="text" class="form-control" id="inputmailh" placeholder=""> </div>
+              </div>
+              <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">報名</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="text-md-left text-center p-4 bg-dark text-light">
+    <div class="container" id="contact">
+      <div class="row">
+        <div class="my-3 col-lg-4 col-md-6">
+          <h3>新時尚健康瘦</h3>
+          <p class="text-muted">為您打造一顆健康的腦</p>
+          <p class="my-3">
+            <a href="https://goo.gl/maps/JSH7UKnKb8C2" target="blank" class="text-muted">胡同空間<br>新北市永和區中正路732巷32號</a>
+          </p>
+          <!--<a class="btn btn-lg btn-primary" href="">Register now</a>-->
+        </div>
+        <div class="col-lg-3"> </div>
+        <div class="my-3 col-lg-5 col-md-6">
+          <h3>聯絡我們</h3>
+          <form id="c_form-h" class="">
+            <div class="form-group row"> <label for="inputpasswordh" class="col-3 col-form-label">姓名</label>
+              <div class="col-9">
+                <input type="password" class="form-control" id="inputpasswordh" placeholder=""> </div>
+            </div>
+            <div class="form-group row"> <label for="inputmailh" class="col-3 col-form-label">E-mail</label>
+              <div class="col-9">
+                <input type="email" class="form-control" id="inputmailh" placeholder=""> </div>
+            </div>
+            <div class="form-group row"> <label for="inputmailh" class="col-3 col-form-label">Line</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="inputmailh" placeholder=""> </div>
+            </div>
+            <button type="submit" class="btn btn-primary">提交</button>
+          </form>
+          <!-- <form>
+          <fieldset class="form-group my-3">
+          <input type="email" class="form-control" id="Input Email" placeholder="Email"> </fieldset>
+          <fieldset class="form-group my-3">
+          <input type="message" class="form-control" id="Input Message" placeholder="Message"> </fieldset>
+          <button type="submit" class="btn btn-outline-primary">提交</button>
+          </form> -->
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <a href="https://www.facebook.com" target="blank"><i class="fa fa-facebook-square text-muted fa-3x m-2"></i></a>
+        <a href="https://www.instagram.com" target="blank"><i class="fa fa-3x fa-instagram text-muted m-2"></i></a>
+        <a href="https://twitter.com" target="blank"><i class="fa fa-3x fa-twitter m-2 text-muted"></i></a>
+        <a href="https://plus.google.com" target="blank"><i class="fa fa-3x fa-google-plus-official text-muted m-2"></i></a>
+        <a href="https://pinterest.com" target="blank"><i class="fa fa-3x text-muted fa-pinterest-p m-2"></i></a>
+        <a href="https://www.youtube.com" target="blank"><i class="fa fa-3x text-muted fa-youtube-play m-2"></i></a>
+      </div>
+      <div class="row justify-content-center">
+        <p class="text-muted">© Copyright 2019 新時尚健康瘦</p>
+      </div>
+    </div>
+  </footer>
+  <!-- JavaScript dependencies -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous" style=""></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <!-- Script: Smooth scrolling between anchors in the same page -->
+  <script src="js/smooth-scroll.js"></script>
+  <script>
+    $(window).resize(function() {
+      $(".navbar-collapse").collapse('hide');
+    });
+  </script>
+</body>
 
-	<script>
-	 var category = function (category_id, name, items, info) {
-	     this.Name = name;
-	     this.Items = items;
-	     this.Info = info;
-	     this.Checked = 0;
-	     this.Category = category_id;
-	 };
-
-	 category.prototype = {
-	     Name: '',
-	     Items: '',
-	     Info: '',
-	     Checked: '',
-	     isChecked: function () {
-		 this.Checked += 1;
-		 console.log(this.Checked);
-	     },
-	     unChecked: function () {
-		 this.Checked -= 1;
-		 console.log(this.Checked);
-	     }
-	 };
-
-	 // var = new category("", ["", "", "", "", "", "", "", "", ""], "(, , , , )");
-	 var category_name = ["保養", "居家休閒", "3C家電", "精品彩妝", "清潔"];
-	 var learning = new category(1, "學習工具", ["書籍", "文具", "雜誌"], "(金石堂, TAAZE, 今周刊, 商周, VOGUE, ELLE)");
-	 var digital = new category(2, "3C 產品", ["手機", "平板", "相機", "印表機", "電腦"], "(燦坤, 森森, 順發3C, 良興電子)");
-	 var fruit = new category(1, "食品和飲料", ["小吃", "飲品", "肉品海鮮", "零嘴", "藥膳", "甜品和糕點"], "(亞尼克, 米樂爆米花, 木匠手作, 台北濱江, 黑豆桑)");
-	 var appliance = new category(2, "家電", ["電視", "冰箱", "影音設備", "洗衣機", "冷氣", "瓦斯爐", "除溼機", "吸塵器", "電風扇", "電暖器", "空氣清淨機", "咖啡機", "調理機", "電鍋", "微波爐", "烤箱", "吹風機", "洗顏機", "電動刮鬍刀", "按摩機", "電動牙刷"], "(燦坤, 順發3C, 良興電子, 大同3C實體店, 威寶電信, GoHappy, 百利市)");
-	 var household = new category(1, "日常雜貨", ["衛生紙/紙巾", "衛生棉/尿布", "牙膏/牙刷", "毛巾/浴巾", "鍋碗瓢盆", "廚房衛浴設備"], "(永豐餘, 均岱, 三井3C, 好房適, 寶僑P&G, 聯合利華)");
-	 var bedding = new category(1, "寢具", ["床墊", "床包", "棉被、枕頭", "床架", "床頭櫃"], "(棉睡3店, 鴻宇寢具, 我們是幸福床墊)");
-	 var furniture = new category(1, "傢俱", ["沙發", "裝飾品", "桌子、椅子", "鞋櫃", "收納櫃", "地毯"], "(aabeauty, LAnder浴櫃商場, 呈邑創研設計)");
-	 var apparel = new category(3, "精品、服飾", ["服飾", "包包", "香水", "手錶", "飾品", "黃金"], "(天母嚴選, BABBY KING童裝, SOGO, 衣林魔力屋)");
-	 var travel = new category(1, "旅遊、休閒", ["住宿", "行程", "餐券", "機票", "電影票"], "(Hotel.com, Gomaji, 東南, 翔順, 大眾, 果子電影)");
-	 var health = new category(0, "營養保健", ["消化不良", "營養不均", "排便不順", "精神不濟", "容易腹瀉", "心血管保養", "血糖管理", "降低三高指數", "壓力過大", "增強免疫系統", "記憶衰退", "內分泌失調", "孕婦保健", "睡眠品質不佳", "抗氧化物", "減緩老化", "增強體力", "骨質強化"], "");
-	 var younger = new category(0, "抗老化", ["臉部凍齡保養", "眼睛視力保養", "關節軟骨保養"], "");
-	 var bodyweight = new category(0, "體重管理", ["促進新陳代謝", "降低體脂肪", "點心、正餐替代品", "減重課程"], "");
-	 var clean = new category(4, "居家清潔用品", ["牆壁、地板清潔劑", "洗碗精", "廚房清潔劑", "洗手液", "浴室清潔劑", "除油劑", "污漬清潔劑"], "");
-	 var waterfilter= new category(1, "濾水器", ["飲水濾水器", "濾水器濾心", "沐浴濾水器"], "");
-	 var laundry = new category(4, "洗衣用具", ["洗衣精", "衣物柔軟精"], "");
-	 var shower = new category(0, "沐浴護膚、洗髮護髮", ["沐浴露", "沐浴球", "身體乳", "護手霜", "洗髮精", "護髮乳", "順髮油", "增髮液", "髮雕"], "");
-	 var souvenir = new category(1, "伴手禮", ["禮盒", "禮品"], "(海苔先生, 健康村, 愛D菇, 火星糖, 童樂會，花田喜");
-	 var baby = new category(0, "嬰幼兒專用", ["嬰兒乳液", "安膚霜", "嬰兒沐浴乳", "洗髮乳", "兒童維生素", "益生菌", "兒童健康軟糖"], "");
-	 var protect = new category(0, "護膚保養", ["洗面乳", "去角質", "化妝水", "精華液", "乳液", "防曬乳", "日霜", "晚霜", "眼霜", "頸霜", "面膜", "護膚組", "美白", "淡斑", "皺紋", "除粉刺", "護唇膏", "肌膚護理", "睫毛纖長"], "");
-	 var makeup = new category(3, "彩妝用品", ["毛孔修飾", "妝前飾底乳", "粉底液", "粉餅", "蜜粉", "修容", "遮暇膏", "腮紅", "眼影", "眼影底霜", "眼彩組", "眉筆、眉粉", "眼線筆、眼線液", "假睫毛、假睫毛膏", "唇膏、唇筆、唇蜜、唇彩組", "定妝霜", "卸妝棉", "眼部卸妝液", "刷具", "美甲用品"], "");
-	 var website = new category(2, "網路行銷管理", ["架設網站", "購物車建置", "網路商品行銷", "廣告配置"], "");
-	 var car = new category(1, "汽機車用品", ["汽車清潔用品", "皮革清潔用品", "降低耗油", "增強馬力"], "");
-	 var other = new category(0, "其他", ["防輻射貼片", "其他"], "");
-
-	 var categories = [learning, digital, fruit, appliance, household, bedding, furniture, apparel, travel, health, younger, bodyweight, clean, waterfilter, laundry, shower, souvenir, baby, protect, makeup, website, car, other];
-
-	 var d = new Date();
-	 d + '';
-	 $(function() {	     
-	     for(inx = 0; inx < categories.length; ++inx) {
-		 var left = ''
-		 var right = ''
-		 for(item_inx = 0; item_inx < categories[inx].Items.length; ++item_inx) {
-		     if(item_inx % 2) {
-			 right = right.concat('<div class="checkbox"><label><input type="checkbox">' + categories[inx].Items[item_inx]+ '</label></div>')
-		     } else {
-			 left = left.concat('<div class="checkbox"><label><input type="checkbox">' + categories[inx].Items[item_inx]+ '</label></div>')
-		     }
-		 }		 
-		 
-		 $('#main_row').append('<div class="col-sm-4" value="' + inx +  '"> <h3>' + categories[inx].Name+ '</h3> <div class="row"> <div class="col-xs-6">' + left + ' </div> <div class="col-xs-6">' + right + ' </div> </div> <p style="font-size:12px">' + categories[inx].Info + ' </p></div>');
-	     }
-
-	     $('input:checkbox').on('change', function() {
-		 var inx = $(this).closest('.col-sm-4').attr('value')
-		 if(this.checked) {
-		     categories[inx].isChecked()
-		 } else {
-		     categories[inx].unChecked()
-		 }
-	     });
-	     $('#submit').on('click', function(event) {
-	 	 // not a good idea..
-	 	     var mdata = []
-	 	 var mdata_drilldown = []
-	 	 for(inx = 0; inx < category_name.length; ++inx) {
-	 	     temp = new Object();
-	 	     temp.name = category_name[inx];
-	 	     temp.y = 0;
-	 	     temp.drilldown = category_name[inx];
-	 	     
-	 	     mdata.push(temp);
-	 	     
-	 	     temp2 = {name: category_name[inx], id: category_name[inx], data: []};
-	 	     
-	 	     mdata_drilldown.push(temp2);
-	 	 }
-	 	 var total_checked = 0
-	 	 var category_total_checked = Array(category_name.length).fill(0);
-	 	 for(inx = 0; inx < categories.length; ++inx) {
-	 	     c = categories[inx].Category
-	 	     category_total_checked[c] += categories[inx].Checked
-	 	 }
-	 	 for(inx = 0; inx < categories.length; ++inx) {
-	 	     c = categories[inx].Category
-	 	     mdata[c].y += categories[inx].Checked
-	 	     total_checked += categories[inx].Checked
-	 	     mdata_drilldown[c].data.push([categories[inx].Name, 100.0 * categories[inx].Checked / category_total_checked[c]])
-	 	 }
-	 	 for(inx = 0; inx < category_name.length; ++inx) {
-	 	     mdata[inx].y /= (total_checked * 0.01)
-	 	 }
-		 Highcharts.chart('chart', {
-		     chart: {
-			 type: 'column'
-		     },
-		     title: {
-			 text: (($('#usr_name').val().length) ? ($('#usr_name').val()) + " 的" : "" ) + "居家購物清單分布"
-		     },
-		     subtitle: {
-			 text:  (($('#usr_tax').val().length) ? ("手機: " + $('#usr_tax').val()) + ", " : "" ) + (($('#usr_email').val().length) ? ("email: " + $('#usr_email').val()) + ", ": "" ) + " (" + d.toISOString().substring(0, 10) + ")"
-		     },
-		     xAxis: {
-			 type: 'category'
-		     },
-		     yAxis: {
-			 title: {
-			     text: '購物分類 %'
-			 }
-
-		     },
-		     legend: {
-			 enabled: false
-		     },
-		     plotOptions: {
-			 series: {
-			     borderWidth: 0,
-			     dataLabels: {
-				 enabled: true,
-				 format: '{point.y:.1f}%'
-			     }
-			 }
-		     },
-
-		     tooltip: {
-			 headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-			 pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-		     },
-
-		     series: [{
-			 name: 'Brands',
-			 colorByPoint: true,
-			 data: mdata
-		     }],
-		     drilldown: {
-			 series: mdata_drilldown
-		     }
-		 });
-	     });	     
-	 });
-	</script>
-  </body>
 </html>
